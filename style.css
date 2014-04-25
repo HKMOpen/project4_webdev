@@ -273,6 +273,13 @@ img.smallpic {
 
 .hidden {
 	display: none;
+	border: 1px solid black;
+	background-color: white;
+	margin: 10px;
+}
+
+.hidden p {
+	margin-left: 16px;
 }
 
 li.confed {
