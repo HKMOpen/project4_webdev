@@ -5,6 +5,10 @@ include_once "post.php";
 
 define("RANDOM_32_CHAR_KEY", substr(md5("random"), 0, 31).'~');
 
+function endsWith($haystack, $needle) {
+	return $needle === "" || substr($haystack, -strlen($needle)) === $needle;
+}
+
 function makeNewUser($uname, $pass, $name, $sex, $number, $mail, $privileges, $picture, $friends, $pending, $bio) {
 	$u = new User();
 	$u->username = $uname;

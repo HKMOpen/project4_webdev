@@ -276,6 +276,8 @@ img.smallpic {
 	border: 1px solid black;
 	background-color: white;
 	margin: 10px;
+	border-radius: 5px;
+	box-shadow: 1px 1px 1px;
 }
 
 .hidden p {
@@ -285,3 +287,33 @@ img.smallpic {
 li.confed {
 	
 }
+
+#fedlist {
+	list-style-type: none;
+}
+
+#fedlist li {
+	margin: 15px;
+}
+
+#fedlist li a:link {
+	box-shadow: 2px 2px 2px black;
+	padding: 3px;
+	border-radius: 5px;
+	border: 1px solid white;
+	background-color: white;
+	color: green;
+}
+
+#fedlist li a:visited {
+	color: green;
+}
+
+#fedlist li a:hover {
+	color: gold;
+}
+
+#fedlist li a:active {
+	color: white;
+}
+

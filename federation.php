@@ -31,8 +31,14 @@
 				if (substr($url, 0, 3) == 'www') {
 					$url = "http://" . $url;
 				}
+				
+				$purposePage = $url;
+				$root = strrpos($purposePage, '/');
+				$purposePage = substr($purposePage, 0, $root+1);
+				$purposePage .= "purpose.php";
+				
 				echo '<li id="link'.$short.'"><a href="'.$url.'">'.$long.'</a></li>';
-				echo '<div id="desc'.$short.'" class="hidden"><p>Site description:</p></div>';
+				echo '<div id="desc'.$short.'" class="hidden"><p>Site description from '.$purposePage.':</p></div>';
 				
 				if ($_SESSION['username'] != 'guest') { ?>
 				
