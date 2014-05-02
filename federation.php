@@ -38,6 +38,7 @@
 				$purposePage .= "purpose.php";
 				
 				echo '<li id="link'.$short.'"><a href="'.$url.'">'.$long.'</a></li>';
+				//TODO: after testing, remove the "Site description from..." text
 				echo '<div id="desc'.$short.'" class="hidden"><p>Site description from '.$purposePage.':</p></div>';
 				
 				if ($_SESSION['username'] != 'guest') { ?>
@@ -49,6 +50,30 @@
 
 									//jquery call to other website for purpose
 									//set desc.text to the purpose
+									website = '<?php echo $purposePage?>';
+									//this should call getpurpose.php
+									$.post('getpurpose.php', {website:website}, function(data){
+											
+											if (data != "fail") {
+												json = $.parseJSON(data);
+												if(json.purpose != null) {
+													$('#desc<?php echo $short; ?>').children().text(json.purpose);
+												}
+												else if (json[0].purpose != null){
+													$('#desc<?php echo $short; ?>').children().text(json[0].purpose);
+												}
+												else {
+													//returned something that wasn't a json object/array of one object
+													$('#desc<?php echo $short; ?>').children().text("Sorry, <?php echo $long;?> appears to be down :(");
+												}
+											}
+											else {
+												//site was unreachable
+												$('#desc<?php echo $short; ?>').children().text("Sorry, <?php echo $long;?> appears to be down :(");
+											}
+											
+										});
+									
 									$('#desc<?php echo $short; ?>').show();
 								
 								}, function() {

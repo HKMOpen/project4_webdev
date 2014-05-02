@@ -282,6 +282,7 @@ img.smallpic {
 
 .hidden p {
 	margin-left: 16px;
+	word-wrap: break-word;
 }
 
 li.confed {
